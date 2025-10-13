@@ -5,9 +5,9 @@ import java.lang.reflect.Field;
 
 public class Main {
     public static void main(String[] args) {
-        checkIfComponentIsAnnotated();
+        checkIfComponentIsAnnotatedWithComponent();
 
-        checkIfServiceIsAnnotated();
+        checkIfServiceIsAnnotatedWithComponent();
 
         printServiceAnnotation();
 
@@ -18,7 +18,7 @@ public class Main {
         createServiceAndInjectIntoComponent();
     }
 
-    private static void checkIfComponentIsAnnotated() {
+    private static void checkIfComponentIsAnnotatedWithComponent() {
         if (MyComponent.class.isAnnotationPresent(Component.class)) {
             System.out.println("MyComponent is directly annotated with @Component");
         } else {
@@ -27,7 +27,7 @@ public class Main {
         System.out.println();
     }
 
-    private static void checkIfServiceIsAnnotated() {
+    private static void checkIfServiceIsAnnotatedWithComponent() {
         if (MyService.class.isAnnotationPresent(Component.class)) {
             System.out.println("MyService is directly annotated with @Component");
         } else {
