@@ -8,20 +8,7 @@ However, annotations are not regular interfaces—they are handled specially by 
 
 Annotations can be annotated with other annotations to create a hierarchy of annotations. See for example `@Component` and `@Service` in this project
 
-## What Is Reflection?
-Reflection is a Java feature that lets you inspect and interact with classes, methods, fields, and annotations at runtime. With reflection, you can 
-create objects, call methods, or even bypass Java's access checks and access or modify private fields at runtime by calling `setAccessible(true)` on the `Field` object.
-
-Reflection also allows to read annotations in runtime even if you don't know their details at compile time.
-
-## How Are They Used in This Project?
-- Custom annotations like `@Component`, `@Service`, and `@Autowired` are used to mark classes and fields.
-- The code uses reflection to check if classes or fields have these annotations (`isAnnotationPresent`), to read annotation details, and to create objects dynamically (`getDeclaredConstructor().newInstance()`).
-- It also uses reflection to inject dependencies: for example, it finds a field marked with `@Autowired` and sets its value to a new service object.
-
-This approach is similar to how frameworks like Spring manage components and dependency injection, but here it's done manually using Java's built-in annotation and reflection features.
-
-## Defining New Annotations: `@Retention` and `@Target`
+### Defining New Annotations: `@Retention` and `@Target`
 When you define a new annotation in Java, you often use two meta-annotations:
 
 - `@Retention` specifies how long the annotation should be kept. The most common values are:
@@ -36,6 +23,13 @@ When you define a new annotation in Java, you often use two meta-annotations:
   - `ElementType.PARAMETER`: Method parameters.
 
 For example, `@Retention(RetentionPolicy.RUNTIME)` means the annotation is available at runtime, and `@Target(ElementType.FIELD)` means it can only be used on fields. This is important for frameworks or code that use reflection to process annotations during program execution.
+
+## What Is Reflection?
+Reflection is a Java feature that lets you inspect and interact with classes, methods, fields, and annotations at runtime. With reflection, you can
+create objects, call methods, or even bypass Java's access checks and access or modify private fields at runtime by calling `setAccessible(true)` on the `Field` object.
+
+Reflection also allows to read annotations in runtime even if you don't know their details at compile time.
+
 
 ## In this project: 
 Custom annotations like `@Component`, `@Service`, and `@Autowired` are used to mark classes and fields. The code uses 
