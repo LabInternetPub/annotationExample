@@ -9,7 +9,10 @@ However, annotations are not regular interfaces—they are handled specially by 
 Annotations can be annotated with other annotations to create a hierarchy of annotations. See for example `@Component` and `@Service` in this project
 
 ## What Is Reflection?
-Reflection is a Java feature that lets you inspect and interact with classes, methods, fields, and annotations at runtime. With reflection, you can create objects, call methods, or read annotations even if you don't know their details at compile time.
+Reflection is a Java feature that lets you inspect and interact with classes, methods, fields, and annotations at runtime. With reflection, you can 
+create objects, call methods, or even bypass Java's access checks and access or modify private fields at runtime by calling `setAccessible(true)` on the `Field` object.
+
+Reflection also allows to read annotations in runtime even if you don't know their details at compile time.
 
 ## How Are They Used in This Project?
 - Custom annotations like `@Component`, `@Service`, and `@Autowired` are used to mark classes and fields.
