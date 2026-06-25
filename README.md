@@ -32,10 +32,9 @@ Reflection also allows to read annotations in runtime even if you don't know the
 
 
 ## In this project: 
-Custom annotations like `@Component`, `@Service`, and `@Autowired` are used to mark classes and fields. The code uses 
-reflection to check if classes or fields have these annotations (`isAnnotationPresent`), to read annotation details, 
-and to create objects dynamically (`getDeclaredConstructor().newInstance()`). It also uses reflection to inject dependencies: 
-for example, it finds a field marked with `@Autowired` and sets its value to a new service object. 
+Custom annotations like `@Component`, and `@Service`, are used to mark classes. The code uses 
+reflection to check if classes have these annotations (`isAnnotationPresent`), to read annotation details, 
+and to create objects dynamically (`getDeclaredConstructor().newInstance()`). It also uses reflection to inject dependencies into the constructor. 
 
 This approach is similar to how frameworks like Spring manage components and dependency injection, but here it's done 
 manually using Java's built-in annotation and reflection features.
