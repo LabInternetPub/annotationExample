@@ -2,18 +2,17 @@ package cat.tecnocampus;
 
 @Component
 public class MyComponent {
-    @Autowired
-    private MyService myService;
+    private final MyService myService;
+
+    public MyComponent(MyService myService) {
+        this.myService = myService;
+    }
 
     public String doSomething() {
         return "Component is running doSomething()";
     }
 
     public String doSomethingWithService() {
-        if (myService != null) {
-            return "Component is running doSomethingWithService() :" + myService.serve();
-        } else {
-            return "Component has no service to do something with";
-        }
+        return "Component is running doSomethingWithService(): " + myService.serve();
     }
 }
